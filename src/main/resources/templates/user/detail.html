@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết thuốc</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: auto;
+            margin-top: 60px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .info {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .warning {
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        .recall {
+            color: #b91c1c;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 16px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .back:hover {
+            background: #1d4ed8;
+        }
+
+        .report-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 16px;
+            background: #dc2626;
+            /* Màu đỏ cảnh báo */
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-left: 10px;
+        }
+
+        .report-btn:hover {
+            background: #b91c1c;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>Thông tin thuốc</h1>
+
+            <p class="info"><b>Tên thuốc:</b> <span th:text="${medicine.name}"></span></p>
+
+            <p class="info"><b>Mã thuốc:</b> <span th:text="${medicine.code}"></span></p>
+
+            <p class="info"><b>Nhà sản xuất:</b> <span th:text="${medicine.manufacturer}"></span></p>
+
+            <p class="info"><b>Quốc gia:</b> <span th:text="${medicine.origin}"></span></p>
+
+            <p class="info"><b>Công dụng:</b> <span th:text="${medicine.usage}"></span></p>
+
+            <p class="info"><b>Độ tuổi sử dụng:</b> <span th:text="${medicine.ageLimit}"></span></p>
+
+            <p class="info warning">
+                ⚠ Cảnh báo: <span th:text="${medicine.riskLevel}"></span>
+            </p>
+
+            <p th:if="${medicine.recalled}" class="recall">
+                Thuốc này đã bị thu hồi
+            </p>
+
+            <a href="/" class="back">Quay lại danh sách</a>
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
